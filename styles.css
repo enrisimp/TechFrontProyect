@@ -1,0 +1,245 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 1px dotted black;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    /* footer abajo */
+    display: grid;
+    min-height: 100dvh;
+    grid-template-rows: auto 1fr auto
+}
+
+/* Estilos generales */
+header, footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Estilos para el logo y el título */
+header div {
+    display: flex;
+    align-items: center; /* Centra el contenido verticalmente */
+    justify-content: center; /* Alinea horizontalmente (si es necesario) */
+    gap: 10px; /* Espacio entre el logo y el texto */
+}
+
+header img {
+    width: 100px; /* Tamaño del logo */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+header h1 {
+    font-size: 2rem;
+    margin: 0;
+    text-align: center; /* Centra el texto */
+}
+
+/* Navegación */
+nav ul {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #f4f4f4;
+    text-decoration: underline;
+}
+
+/* Main content */
+
+main {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+section#inicio {
+    width: 100%;
+    max-width: 1200px; /* Limita el ancho máximo en pantallas grandes */
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+section#inicio h2 {
+    margin-bottom: 20px;
+}
+
+
+/* Estilos responsivos para el iframe */
+iframe {
+    width: 100%;
+    height: 315px; /* Altura inicial en pantallas grandes */
+    max-width: 100%; /* Asegura que no se salga del contenedor */
+    border: none;
+    border-radius: 8px;
+}
+
+/* Sección de productos con Flexbox */
+section#productos {
+    display: flex;
+    justify-content: center; /* Centra la sección dentro de la página */
+    flex-direction: column;
+    text-align: center;
+}
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra las tarjetas dentro del contenedor */
+    margin: 0 auto;
+    gap: 5px; /* Espacio entre cada tarjeta */
+}
+
+.producto-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin: 5px;
+    width: 20%; /* Cambia el ancho según el diseño deseado */
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-radius: 8px;
+    overflow: hidden; /* Para que el contenido de la tarjeta no se salga */
+    box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.456);
+}
+
+.producto-card img {
+    width: 100%;
+    height: auto; /* Mantiene la proporción de la imagen */
+    max-height: 200px; /* Establece una altura máxima para que no se salga de la card */
+    object-fit: scale-down;
+    border-radius: 8px 8px 0 0; /* Bordes redondeados en la parte superior de la imagen */
+}
+
+.producto-card h3 {
+    margin: 10px 0;
+}
+
+.producto-card p {
+    color: #666;
+    font-size: 12px;
+
+}
+
+/* Sección de reseñas con Grid */
+.reseñas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.reseña {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el formulario de contacto */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+/* Footer */
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Media Queries para diseño responsivo */
+@media (max-width: 768px) {
+    .productos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+.producto-card {
+        width: 45%; /* 2 cards por fila en pantallas pequeñas */
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+     iframe {
+        height: 450px; /* Aumenta el tamaño del iframe en pantallas grandes */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 24px;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    nav ul {
+        padding: 0;
+    }
+
+    iframe {
+        height: 200px; /* Reduce la altura del iframe en móviles */
+    }
+
+     .producto-card {
+        width: 100%; /* 1 card por fila en pantallas muy pequeñas */
+    }
+}
