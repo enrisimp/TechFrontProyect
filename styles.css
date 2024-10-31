@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  border: 1px dotted black;
+  /* border: 1px dotted black; */
 }
 
 body {
@@ -9,52 +9,68 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #f4f4f4;
+
     color: #333;
     /* footer abajo */
     display: grid;
     min-height: 100dvh;
     grid-template-rows: auto 1fr auto
 }
-
+body {
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/028/636/070/small_2x/an-empty-director-chair-in-front-of-an-empty-film-set-gloomy-background-photo.jpg'); /* Ruta a tu imagen */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+}
 /* Estilos generales */
 header, footer {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
 /* Estilos para el logo y el título */
 header div {
     display: flex;
-    align-items: center; /* Centra el contenido verticalmente */
-    justify-content: center; /* Alinea horizontalmente (si es necesario) */
-    gap: 10px; /* Espacio entre el logo y el texto */
+    align-items: center;
+    justify-content: center; 
+    gap: 10px;
 }
 
 header img {
-    width: 100px; /* Tamaño del logo */
-    height: auto; /* Mantiene la proporción de la imagen */
+    width: 100px; 
+    height: auto; 
 }
 
 header h1 {
     font-size: 2rem;
     margin: 0;
-    text-align: center; /* Centra el texto */
+    text-align: center;
+    color: red;
+      text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px rgb(255, 81, 0),
+      0 0 82px rgb(255, 174, 0),
+      0 0 92px rgb(255, 47, 0),
+      0 0 102px #0fa,
+      0 0 151px rgb(255, 13, 0);
 }
 
 /* Navegación */
+nav {
+    margin-top: 10px;;
+}
 nav ul {
     display: flex;
     justify-content: center;
     padding: 0;
+    gap: 50px;
     list-style: none;
 }
 
-nav ul li {
-    margin: 0 15px;
-}
 
 nav ul li a {
     color: #fff;
@@ -67,35 +83,87 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
+.active {
+    font-weight: 900;
+    background-color: black;
+     border-radius: 8px;
+     color: yellowgreen;
+     padding: 5px 10px;
+}
+
 /* Main content */
 
 main {
     flex: 1;
     width: 100%;
     height: 100%;
-    margin: auto;
+    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    padding: 20px;
+    justify-content: center;
 }
+
+
+
 
 section#inicio {
     width: 100%;
+    height: 100%;
     max-width: 1200px; /* Limita el ancho máximo en pantallas grandes */
     text-align: center;
     padding: 20px;
-    background-color: #fff;
+    padding-bottom: 20px;
+    background-color: #ffffff79;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+        flex: 2;
+
+}
+
+section#inicio h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+section#inicio p {
+     margin-bottom: 20px;
+}
+
+
+section#inicio iframe {
+    width: 80%;
+    height: 60%; /* Hace que el iframe ocupe un 60% de la altura de section */
+    max-height: 300px; /* Limita la altura en pantallas grandes */
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+aside h4 {
+    margin-bottom: 20px;
+}
+
+aside {
+    flex: 1;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff79;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
 
-section#inicio h2 {
-    margin-bottom: 20px;
-}
-
-
-/* Estilos responsivos para el iframe */
-iframe {
+aside iframe {
     width: 100%;
-    height: 315px; /* Altura inicial en pantallas grandes */
-    max-width: 100%; /* Asegura que no se salga del contenedor */
+    height: 100%; /* Hace que el iframe en aside ocupe toda su altura */
+    max-height: 500px; /* Limita el tamaño del iframe en pantallas muy grandes */
     border: none;
     border-radius: 8px;
 }
@@ -106,6 +174,9 @@ section#productos {
     justify-content: center; /* Centra la sección dentro de la página */
     flex-direction: column;
     text-align: center;
+    background-color: #ffffff79;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 .productos {
     display: flex;
@@ -143,24 +214,50 @@ section#productos {
 .producto-card p {
     color: #666;
     font-size: 12px;
-
 }
 
 /* Sección de reseñas con Grid */
+section#reseñas {
+    width: 100%;
+    height: 100%;
+    max-width: 1200px; /* Limita el ancho máximo en pantallas grandes */
+    padding: 20px;
+    background-color: #ffffff79;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
 .reseñas {
+
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
 .reseña {
-    background-color: #fff;
+    background-color: lightgrey;
     border: 1px solid #ddd;
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+p#autor {
+    font-size: 12px;
+    text-align: end;
 }
 
 /* Estilos para el formulario de contacto */
+section#contacto {
+    width: 100%;
+    height: 100%;
+    max-width: 1200px; /* Limita el ancho máximo en pantallas grandes */
+    padding: 20px;
+    background-color: #ffffff79;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -200,6 +297,15 @@ footer p {
 
 /* Media Queries para diseño responsivo */
 @media (max-width: 768px) {
+     main {
+        flex-direction: column;
+        height: auto;
+    }
+
+    section#inicio, aside {
+        max-width: 100%;
+    }
+    
     .productos {
         flex-direction: column;
         align-items: center;
@@ -209,22 +315,25 @@ footer p {
         width: 45%; /* 2 cards por fila en pantallas pequeñas */
     }
 
+    #logo {
+        flex-direction: column;
+        height: auto;
+    }
+
     nav ul {
         flex-direction: column;
+        gap: 10px;
     }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-     iframe {
-        height: 450px; /* Aumenta el tamaño del iframe en pantallas grandes */
+    aside iframe {
+        width: 80%;
+        height: 100%;
     }
 }
 
 @media (max-width: 480px) {
     header h1 {
         font-size: 24px;
+        color: red;
     }
 
     nav ul li {
