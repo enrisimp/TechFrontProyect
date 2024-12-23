@@ -1,5 +1,7 @@
 const apiURL = "../api/productos.json";
 const productosContainer = document.querySelector(".productos");
+console.log("productosContainer", productosContainer);
+
 
 // Función para cargar productos desde la API
 async function cargarProductos() {
