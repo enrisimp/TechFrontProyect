@@ -1,5 +1,7 @@
 const carritoContainer = document.getElementById("carrito-container");
 const carritoTotal = document.getElementById("carrito-total");
+const vaciarCarritoBtn = document.getElementById("vaciar-carrito");
+const realizarCompraBtn = document.getElementById("realizar-compra");
 
 // Función para cargar el carrito desde localStorage
 function cargarCarrito() {
@@ -11,15 +13,18 @@ function cargarCarrito() {
     const item = document.createElement("div");
     item.classList.add("carrito-item");
     item.innerHTML = `
-            <span>${producto.name}</span>
-            <input type="number" min="1" value="${
-              producto.cantidad
-            }" data-id="${producto.id}" class="input-cantidad">
-            <span>$${(producto.price * producto.cantidad).toFixed(2)}</span>
-            <button class="btn-eliminar" data-id="${
-              producto.id
-            }">Eliminar</button>
-        `;
+      <div class="carrito-detalle">
+          <img src="${producto.image}" alt="${producto.name}" class="miniatura">
+          <span>${producto.name}</span>
+      </div>
+      <input type="number" min="1" value="${producto.cantidad}" data-id="${
+      producto.id
+    }" class="input-cantidad">
+      <span>$${(producto.price * producto.cantidad).toFixed(2)}</span>
+      <button class="btn-eliminar btn btn-danger btn-sm" data-id="${
+        producto.id
+      }">Eliminar</button>
+    `;
 
     total += producto.price * producto.cantidad;
     carritoContainer.appendChild(item);
@@ -59,6 +64,33 @@ function eliminarProducto(event) {
   localStorage.setItem("carrito", JSON.stringify(carrito));
   cargarCarrito();
 }
+
+// Función para vaciar el carrito
+function vaciarCarrito() {
+  localStorage.removeItem("carrito");
+  cargarCarrito();
+}
+
+// Función para realizar la compra
+function realizarCompra() {
+  const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  if (carrito.length === 0) {
+    alert("El carrito está vacío. Agrega productos antes de comprar.");
+    return;
+  }
+
+  const tarjeta = prompt(
+    "Introduce los datos de tu tarjeta para realizar la compra:"
+  );
+  if (tarjeta) {
+    alert("¡Gracias por tu compra!");
+    vaciarCarrito();
+  }
+}
+
+// Eventos para los botones
+vaciarCarritoBtn.addEventListener("click", vaciarCarrito);
+realizarCompraBtn.addEventListener("click", realizarCompra);
 
 // Cargar el carrito al iniciar
 cargarCarrito();

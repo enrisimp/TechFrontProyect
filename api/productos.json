@@ -3,28 +3,28 @@
         "id": 1,
         "name": "Lincoln Lawyer",
         "image": "./Assets/Lincoln.png",
-        "description": "Marginado después de un accidente...",
+        "description": "Marginado después de un accidente, el prestigioso abogado de Los Ángeles Mickey Haller reinicia su carrera (y su característico Lincoln) cuando se hace cargo de un caso de asesinato.",
         "price": 15.99
     },
     {
         "id": 2,
         "name": "Justice",
         "image": "./Assets/Justice.png",
-        "description": "Un joven detective busca la ayuda...",
+        "description": "Un joven detective busca la ayuda de un oficial de policía dado de baja, lo que le da la oportunidad de recuperar su antigua vida a cambio de resolver un caso de asalto a un banco.",
         "price": 12.49
     },
     {
         "id": 3,
         "name": "The Shadow Strays",
         "image": "./Assets/shadow.png",
-        "description": "Una joven asesina desafía a su madre...",
+        "description": "Una joven asesina desafía a su madre y a su organización, empeñada en rescatar a un niño que perdió a su madre a manos de un poderoso sindicato del crimen.",
         "price": 18.00
     },
     {
         "id": 4,
         "name": "Family Pack",
         "image": "./Assets/family.png",
-        "description": "Después de descubrir un misterioso juego...",
+        "description": "Después de descubrir un misterioso juego de cartas, una familia viaja en el tiempo a un pueblo medieval donde deben defenderse de peligrosos hombres lobo cada noche.",
         "price": 22.99
     }
 ]

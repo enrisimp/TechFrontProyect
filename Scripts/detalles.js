@@ -28,7 +28,7 @@ async function cargarDetalleProducto() {
     }
 
 detalleContainer.innerHTML = `
-      <div class="card producto-card">
+      <div class="card detalle-card">
           <img src="${producto.image}" class="card-img-top" alt="${producto.name}">
           <div class="card-body">
               <h3 class="card-title">${producto.name}</h3>
