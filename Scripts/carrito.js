@@ -2,6 +2,9 @@ const carritoContainer = document.getElementById("carrito-container");
 const carritoTotal = document.getElementById("carrito-total");
 const vaciarCarritoBtn = document.getElementById("vaciar-carrito");
 const realizarCompraBtn = document.getElementById("realizar-compra");
+const formularioCompra = document.getElementById("formulario-compra");
+const finalizarCompraBtn = document.getElementById("finalizar-compra");
+const formulario = document.getElementById("formulario");
 
 // Función para cargar el carrito desde localStorage
 function cargarCarrito() {
@@ -10,29 +13,26 @@ function cargarCarrito() {
   let total = 0;
 
   carrito.forEach((producto) => {
-    const item = document.createElement("div");
-    item.classList.add("carrito-item");
-    item.innerHTML = `
-      <div class="carrito-detalle">
-          <img src="${producto.image}" alt="${producto.name}" class="miniatura">
-          <span>${producto.name}</span>
-      </div>
-      <input type="number" min="1" value="${producto.cantidad}" data-id="${
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td><img src="${producto.image}" alt="${producto.name}" class="miniatura"></td>
+      <td>
+        ${producto.name}
+      </td>
+      <td><input type="number" min="1" value="${producto.cantidad}" data-id="${
       producto.id
-    }" class="input-cantidad">
-      <span>$${(producto.price * producto.cantidad).toFixed(2)}</span>
-      <button class="btn-eliminar btn btn-danger btn-sm" data-id="${
+    }" class="input-cantidad"></td>
+      <td>$${(producto.price * producto.cantidad).toFixed(2)}</td>
+      <td><button class="btn-eliminar btn btn-danger btn-sm" data-id="${
         producto.id
-      }">Eliminar</button>
+      }">Eliminar</button></td>
     `;
-
     total += producto.price * producto.cantidad;
-    carritoContainer.appendChild(item);
+    carritoContainer.appendChild(row);
   });
 
   carritoTotal.textContent = `Total: $${total.toFixed(2)}`;
 
-  // Eventos para modificar cantidad y eliminar productos
   document.querySelectorAll(".input-cantidad").forEach((input) => {
     input.addEventListener("change", cambiarCantidad);
   });
@@ -41,7 +41,6 @@ function cargarCarrito() {
   });
 }
 
-// Función para cambiar la cantidad de un producto
 function cambiarCantidad(event) {
   const productId = parseInt(event.target.dataset.id);
   const nuevaCantidad = parseInt(event.target.value);
@@ -55,7 +54,6 @@ function cambiarCantidad(event) {
   }
 }
 
-// Función para eliminar un producto del carrito
 function eliminarProducto(event) {
   const productId = parseInt(event.target.dataset.id);
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -65,32 +63,40 @@ function eliminarProducto(event) {
   cargarCarrito();
 }
 
-// Función para vaciar el carrito
 function vaciarCarrito() {
   localStorage.removeItem("carrito");
+  formularioCompra.classList.remove("visible");
   cargarCarrito();
 }
 
-// Función para realizar la compra
 function realizarCompra() {
   const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   if (carrito.length === 0) {
     alert("El carrito está vacío. Agrega productos antes de comprar.");
     return;
   }
-
-  const tarjeta = prompt(
-    "Introduce los datos de tu tarjeta para realizar la compra:"
-  );
-  if (tarjeta) {
-    alert("¡Gracias por tu compra!");
-    vaciarCarrito();
-  }
+  formularioCompra.classList.add("visible");
 }
 
-// Eventos para los botones
+finalizarCompraBtn.addEventListener("click", (event) => {
+  event.preventDefault(); // Evita que el formulario recargue la página
+  const nombre = document.getElementById("nombre").value.trim();
+  const direccion = document.getElementById("direccion").value.trim();
+  const tarjeta = document.getElementById("tarjeta").value.trim();
+
+  if (!nombre || !direccion || !tarjeta) {
+    alert("Por favor, completa todos los campos del formulario.");
+    return;
+  }
+
+  alert("Gracias por su compra!");
+  localStorage.removeItem("carrito");
+  cargarCarrito();
+  formularioCompra.classList.remove("visible");
+});
+
 vaciarCarritoBtn.addEventListener("click", vaciarCarrito);
 realizarCompraBtn.addEventListener("click", realizarCompra);
 
-// Cargar el carrito al iniciar
 cargarCarrito();
+formularioCompra.classList.remove("visible");
