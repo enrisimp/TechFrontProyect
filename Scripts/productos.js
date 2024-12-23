@@ -1,4 +1,4 @@
-const apiURL = "../api/productos.json";
+const apiURL = "./api/productos.json";
 const productosContainer = document.querySelector(".productos");
 console.log("productosContainer", productosContainer);
 

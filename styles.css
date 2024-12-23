@@ -190,18 +190,24 @@ section#productos {
     background-color: #fff;
     border: 1px solid #ddd;
     margin: 5px;
-    width: 20%; /* Cambia el ancho según el diseño deseado */
+    max-width: 400px; /* Ancho máximo de la tarjeta */
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
     border-radius: 8px;
     overflow: hidden; /* Para que el contenido de la tarjeta no se salga */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.456);
+}
+
+.producto-card:hover {
+    transform: scale(1.03); /* Pequeño efecto de zoom al pasar el ratón */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .producto-card img {
     width: 100%;
-    height: auto; /* Mantiene la proporción de la imagen */
+    height: auto;
     max-height: 200px; /* Establece una altura máxima para que no se salga de la card */
     object-fit: scale-down;
     border-radius: 8px 8px 0 0; /* Bordes redondeados en la parte superior de la imagen */
@@ -209,11 +215,29 @@ section#productos {
 
 .producto-card h3 {
     margin: 10px 0;
+    color: #333;
+    font-size: 18px;
 }
 
 .producto-card p {
     color: #666;
-    font-size: 12px;
+    font-size: 14px;
+}
+
+.btn-agregar {
+    margin-top: 10px;
+    background-color: #007bff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-agregar:hover {
+    background-color: #0056b3;
 }
 
 /* Sección de reseñas con Grid */
@@ -293,6 +317,23 @@ button:hover {
 footer p {
     margin: 0;
     font-size: 14px;
+}
+
+.producto-card, .carrito-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.carrito-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-cantidad {
+    width: 50px;
+    text-align: center;
 }
 
 /* Media Queries para diseño responsivo */

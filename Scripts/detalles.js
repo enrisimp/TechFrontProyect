@@ -1,4 +1,4 @@
-const apiURL = "../api/productos.json";
+const apiURL = "./api/productos.json";
 const detalleContainer = document.getElementById("producto-detalle");
 console.log("Detalle");
 
@@ -27,15 +27,17 @@ async function cargarDetalleProducto() {
       return;
     }
 
-    detalleContainer.innerHTML = `
-            <img src="${producto.image}" alt="${producto.name}">
-            <h3>${producto.name}</h3>
-            <p>${producto.description}</p>
-            <p><strong>Precio:</strong> $${producto.price.toFixed(2)}</p>
-            <button class="btn-agregar" data-id="${
-              producto.id
-            }">Agregar al carrito</button>
-        `;
+detalleContainer.innerHTML = `
+      <div class="card producto-card">
+          <img src="${producto.image}" class="card-img-top" alt="${producto.name}">
+          <div class="card-body">
+              <h3 class="card-title">${producto.name}</h3>
+              <p class="card-text">${producto.description}</p>
+              <p class="card-text"><strong>Precio:</strong> $${producto.price.toFixed(2)}</p>
+              <button class="btn btn-primary btn-agregar" data-id="${producto.id}">Agregar al carrito</button>
+          </div>
+      </div>
+  `;
 
     // Evento para agregar al carrito
     document
