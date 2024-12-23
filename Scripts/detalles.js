@@ -1,4 +1,4 @@
-const apiURL = "../productos.json";
+const apiURL = "../api/productos.json";
 const detalleContainer = document.getElementById("producto-detalle");
 
 // Función para obtener el ID desde la URL

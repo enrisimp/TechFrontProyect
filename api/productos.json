@@ -2,28 +2,28 @@
     {
         "id": 1,
         "name": "Lincoln Lawyer",
-        "image": "./Assets/Lincoln.png",
+        "image": "./assets/Lincoln.png",
         "description": "Marginado después de un accidente...",
         "price": 15.99
     },
     {
         "id": 2,
         "name": "Justice",
-        "image": "./Assets/Justice.png",
+        "image": "./assets/Justice.png",
         "description": "Un joven detective busca la ayuda...",
         "price": 12.49
     },
     {
         "id": 3,
         "name": "The Shadow Strays",
-        "image": "./Assets/shadow.png",
+        "image": "./assets/shadow.png",
         "description": "Una joven asesina desafía a su madre...",
         "price": 18.00
     },
     {
         "id": 4,
         "name": "Family Pack",
-        "image": "./Assets/family.png",
+        "image": "./assets/family.png",
         "description": "Después de descubrir un misterioso juego...",
         "price": 22.99
     }

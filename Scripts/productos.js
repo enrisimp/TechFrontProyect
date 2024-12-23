@@ -1,4 +1,4 @@
-const apiURL = "../productos.json"
+const apiURL = "../api/productos.json";
 const productosContainer = document.querySelector(".productos");
 
 // Función para cargar productos desde la API
